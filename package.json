@@ -1,0 +1,24 @@
+{
+  "name": "xmpp-easy",
+  "version": "0.0.1",
+  "description": "easy extendable xmpp based on https://github.com/node-xmpp/",
+  "main": "index.js",
+  "dependencies": {
+    "node-xmpp-core": "^5.0.9",
+    "node-xmpp-server": "^2.2.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robophil/node-xmpp-easy.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Robophil/node-xmpp-easy/issues"
+  },
+  "homepage": "https://github.com/Robophil/node-xmpp-easy#readme"
+}
