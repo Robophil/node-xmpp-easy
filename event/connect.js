@@ -13,5 +13,4 @@ module.exports = client => {
     }).catch(error => {
         console.log(error)
     })
-    console.log("connection")
 }
