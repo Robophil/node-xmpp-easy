@@ -5,5 +5,6 @@
  * @return function(opt, cb)
  */
 module.exports = client => (opts, cb) => {
+    console.log("register event")
     cb(true)
 }

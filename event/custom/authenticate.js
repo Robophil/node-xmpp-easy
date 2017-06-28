@@ -6,7 +6,9 @@
  */
 module.exports = client => (opts, cb) => {
     //do authentication / password check here
-    var authenticated = false
+    var authenticated = true
+
+    console.log("authenticate event")
 
     if(authenticated){ //truthy
         cb(null, opts)

@@ -11,5 +11,11 @@
 const Stanza = require('node-xmpp-core').Stanza
 
 module.exports = client => (stanza) => {
-    
+    var from = stanza.attrs.from
+    stanza.attrs.from = stanza.attrs.to
+    stanza.attrs.to = from
+    client.send(stanza)
+    console.log(stanza)
+
+    console.log("stanza event")
 }

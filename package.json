@@ -5,6 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "dotenv": "^4.0.0",
+    "glob": "^7.1.2",
+    "node-xmpp-client": "^3.2.0",
     "node-xmpp-core": "^5.0.9",
     "node-xmpp-server": "^2.2.7"
   },
