@@ -5,7 +5,8 @@ const CLIENTS = require('../../util/clients')
  */
 module.exports = client => () => {
     console.log('server:', client.jid.local, 'ONLINE')
-    const clientKey = client.jid.user + '@' + client.jid.domain + '/' + client.jid.resource
+    const clientKey = `${client.jid.user}@${client.jid.domain}`
+    client['clientKey'] = clientKey
     //store client informaiton
     CLIENTS.set(clientKey, client)
 }
