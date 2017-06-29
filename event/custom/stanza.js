@@ -15,5 +15,14 @@ const Stanza = require('node-xmpp-core').Stanza
 module.exports = client => (stanza) => {
     const clientKey = stanza.attrs.to
     //get client from map and send message
-    CLIENTS.get(clientKey).send(stanza)
+    if (stanza.is('message') && (stanza.attrs.type !== 'error')) {
+        CLIENTS.get(clientKey).send(stanza)
+    }else if (stanza.is('presence')) {
+        
+    }else if (stanza.is('iq') && stanza.attrs.type == 'get') {
+
+    }else{
+        CLIENTS.get(clientKey).send(stanza)
+    }
+    
 }
