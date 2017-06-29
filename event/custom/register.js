@@ -5,6 +5,6 @@
  * @return function(opt, cb)
  */
 module.exports = client => (opts, cb) => {
-    console.log("register event")
+    console.log("REGISTER: ", client.jid.user + '@' + client.jid.domain + '/' + client.jid.resource)
     cb(true)
 }
