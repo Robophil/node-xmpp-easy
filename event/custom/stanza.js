@@ -16,13 +16,17 @@ module.exports = client => (stanza) => {
     const clientKey = stanza.attrs.to
     //get client from map and send message
     if (stanza.is('message') && (stanza.attrs.type !== 'error')) {
-        CLIENTS.get(clientKey).send(stanza)
-    }else if (stanza.is('presence')) {
-        
-    }else if (stanza.is('iq') && stanza.attrs.type == 'get') {
+        if (CLIENTS.has(clientKey)) {//client is online
+            CLIENTS.get(clientKey).send(stanza)
+        }
+    } else if (stanza.is('chat') && (stanza.attrs.type !== 'error')) {
+        if (CLIENTS.has(clientKey)) {//client is online
+            CLIENTS.get(clientKey).send(stanza)
+        }
+    } else if (stanza.is('presence')) {
 
-    }else{
-        CLIENTS.get(clientKey).send(stanza)
+    } else if (stanza.is('iq') && stanza.attrs.type == 'get') {
+
     }
-    
+
 }
