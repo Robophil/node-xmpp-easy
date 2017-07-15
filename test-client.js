@@ -16,8 +16,8 @@ client1.on('online', function (data) {
     debug('client1 is online')
     debug('client1', data)
     setInterval(()=>{
-        client1.send(new Stanza('message', { to: 'client2@localhost' }).c('body').t('HelloWorld'))
-    }, 1000)
+        client1.send(new Stanza('message', { to: 'client2@localhost' }).c('body').t('HelloWorld').c('extMsg').t('i-am-here'))
+    }, 5000)
 })
 client1.on('stanza', function (stanza) {
     debug('client1', 'received stanza', stanza.root().toString())
@@ -43,7 +43,11 @@ client2.on('online', function (data) {
     debug('client2', data)
 })
 client2.on('stanza', function (stanza) {
-    debug('client2', 'received stanza ==>',  stanza.root().toString(), "\n\n")
+    // debug('client2', 'received stanza ==>',  stanza.root().toString(), "\n\n")
+    console.log('\n\n')
+    console.dir(stanza.toJSON().children[0].children)
+    console.log('\n\n')
+    console.dir(stanza.toJSON())
 })
 
 console.log(`connected to server through websockts on ws://${process.env.XMPP_DOMAIN}:${process.env.XMPP_PORT}`)
